@@ -17,9 +17,6 @@ body {
   align-items: center;
   justify-content: center; /* Center pulses horizontally */
   overflow: hidden;
-  body {
-    margin: 0;
-  }
 
   .parent {
     display: grid;
