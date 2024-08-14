@@ -12,132 +12,66 @@ body {
 
 .div1 {
   grid-area: 5 / 1 / 6 / 6;
-  background-color: #525252; /* Dark Gray */
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center pulses horizontally */
-  overflow: hidden;
-
-  .parent {
-    display: grid;
-    grid-template-columns: 10% 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    height: 100vh;
-    width: 100vw;
-  }
-
-  .div1 {
-    grid-area: 5 / 1 / 6 / 6;
-    background-color: #525252;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .pulse {
-    background-color: #d3d3d3;
-    border: 1px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    margin: 0 2px;
-    height: 50%;
-    width: 1rem;
-  }
-
-  .div2 {
-    grid-area: 1 / 1 / 5 / 2;
-    background-color: #b0b0b0;
-  }
-
-  .div3 {
-    grid-area: 1 / 5 / 5 / 6;
-    background-color: #c0c0c0;
-  }
-
-  .div4 {
-    grid-area: 1 / 2 / 2 / 3;
-    background-color: #d3d3d3;
-  }
-
-  .div5 {
-    grid-area: 1 / 3 / 2 / 4;
-    background-color: #a9a9a9;
-  }
-
-  .div6 {
-    grid-area: 1 / 4 / 2 / 5;
-    background-color: #b0b0b0;
-  }
-
-  .div7 {
-    grid-area: 2 / 2 / 5 / 4;
-    background-color: #c0c0c0;
-  }
-
-  .div8 {
-    grid-area: 2 / 4 / 3 / 5;
-    background-color: #d3d3d3;
-  }
-
-  .div9 {
-    grid-area: 3 / 4 / 4 / 5;
-    background-color: #a9a9a9;
-  }
-
-  .div10 {
-    grid-area: 4 / 4 / 5 / 5;
-    background-color: #b0b0b0;
-  }
-}
-
-.pulse {
-  background-color: #d3d3d3; /* Light Gray */
-  border: 1px solid #000; /* Black border */
+  background-color: #525252;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-grow: 1; /* Allow pulses to grow and fill available space */
-  margin: 0 2px; /* Optional: Add some spacing between pulses */
+  overflow: hidden;
+}
+
+.pulse {
+  background-color: #d3d3d3;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0 2px;
   height: 50%;
-  width: 1rem; /* Set a consistent width for pulses */
+  width: 1rem;
 }
 
 .div2 {
   grid-area: 1 / 1 / 5 / 2;
-  background-color: #b0b0b0; /* Gray */
+  background-color: #b0b0b0;
 }
+
 .div3 {
   grid-area: 1 / 5 / 5 / 6;
-  background-color: #c0c0c0; /* Silver */
+  background-color: #c0c0c0;
 }
+
 .div4 {
   grid-area: 1 / 2 / 2 / 3;
-  background-color: #d3d3d3; /* Light Gray */
+  background-color: #d3d3d3;
 }
+
 .div5 {
   grid-area: 1 / 3 / 2 / 4;
-  background-color: #a9a9a9; /* Dark Gray */
+  background-color: #a9a9a9;
 }
+
 .div6 {
   grid-area: 1 / 4 / 2 / 5;
-  background-color: #b0b0b0; /* Gray */
+  background-color: #b0b0b0;
 }
+
 .div7 {
   grid-area: 2 / 2 / 5 / 4;
-  background-color: #c0c0c0; /* Silver */
+  background-color: #c0c0c0;
 }
+
 .div8 {
   grid-area: 2 / 4 / 3 / 5;
-  background-color: #d3d3d3; /* Light Gray */
+  background-color: #d3d3d3;
 }
+
 .div9 {
   grid-area: 3 / 4 / 4 / 5;
-  background-color: #a9a9a9; /* Dark Gray */
+  background-color: #a9a9a9;
 }
+
 .div10 {
   grid-area: 4 / 4 / 5 / 5;
-  background-color: #b0b0b0; /* Gray */
+  background-color: #b0b0b0;
 }
