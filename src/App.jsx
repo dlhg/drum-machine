@@ -8,7 +8,15 @@ function App() {
   return (
     <>
       <div className="viewport">
-        <div className="grid-parent"></div>
+        <div className="grid-parent">
+          <div className="sequencer">
+            <div className="solo-mute-volume-column"></div>
+          </div>
+
+          <div className="left-menu"> </div>
+          <div className="bottom-menu"></div>
+          <div className="top-menu"> </div>
+        </div>
       </div>
     </>
   );
