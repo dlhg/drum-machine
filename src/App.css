@@ -9,15 +9,15 @@ body {
   grid-row-gap: 0px;
 }
 
-.div1 {
+.sequencer {
   grid-area: 2 / 2 / 5 / 5;
 }
-.div2 {
+.left-menu {
   grid-area: 1 / 1 / 6 / 2;
 }
-.div3 {
+.bottom-menu {
   grid-area: 5 / 2 / 6 / 5;
 }
-.div4 {
+.top-menu {
   grid-area: 1 / 2 / 2 / 5;
 }
