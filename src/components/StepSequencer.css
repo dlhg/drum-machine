@@ -82,4 +82,6 @@
 }
 
 /* Step that is both active and playing */
-.step.active.pl;
+.step.active.playing {
+  background-color: yellow;
+}
