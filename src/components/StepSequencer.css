@@ -1,3 +1,18 @@
+/* Steps Slider and Labels */
+.steps-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.steps-control input[type="range"] {
+  margin-left: 10px;
+  width: 300px;
+}
+.steps-label {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
 /* Container for the entire sequencer */
 .sequencer-container {
   display: flex;

@@ -5,14 +5,14 @@ const StepSequencer = () => {
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const steps = 64;
+  const [steps, setSteps] = useState(64); // New state for steps
   const rows = 4;
   const instruments = useMemo(
     () => [
-      new Tone.Synth().toDestination(),
-      new Tone.MembraneSynth().toDestination(),
-      new Tone.NoiseSynth().toDestination(),
+      new Tone.AMSynth().toDestination(),
       new Tone.FMSynth().toDestination(),
+      new Tone.PluckSynth().toDestination(),
+      new Tone.MonoSynth().toDestination(),
     ],
     []
   );
@@ -29,7 +29,7 @@ const StepSequencer = () => {
         setCurrentStep(step);
         sequence.forEach((row, index) => {
           if (row[step]) {
-            instruments[index].triggerAttackRelease("C2", "16n", time);
+            instruments[index].triggerAttackRelease("C3", "16n", time);
           }
         });
       },
@@ -38,7 +38,7 @@ const StepSequencer = () => {
     ).start(0);
 
     return () => loop.dispose();
-  }, [bpm, sequence, instruments]);
+  }, [bpm, sequence, instruments, steps]);
 
   const toggleStep = useCallback((row, step) => {
     setSequence((prevSequence) =>
@@ -68,6 +68,20 @@ const StepSequencer = () => {
     setBpm(e.target.value);
   }, []);
 
+  const handleStepsChange = useCallback((e) => {
+    const newSteps = parseInt(e.target.value, 10);
+    setSteps(newSteps);
+    setSequence((prevSequence) =>
+      prevSequence.map((row) => {
+        const newRow = Array(newSteps).fill(false);
+        row.slice(0, newSteps).forEach((val, idx) => {
+          newRow[idx] = val;
+        });
+        return newRow;
+      })
+    );
+  }, []);
+
   return (
     <div className="sequencer-container">
       <div className="bpm-control">
@@ -79,6 +93,16 @@ const StepSequencer = () => {
           onChange={handleBpmChange}
         />
         <span className="bpm-label">{bpm} BPM</span>
+      </div>
+      <div className="steps-control">
+        <input
+          type="range"
+          min="8"
+          max="128"
+          value={steps}
+          onChange={handleStepsChange}
+        />
+        <span className="steps-label">{steps} Steps</span>
       </div>
       <div className="sequencer-buttons">
         <button onClick={startSequencer} disabled={playing}>
