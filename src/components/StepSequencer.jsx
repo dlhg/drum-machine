@@ -5,6 +5,8 @@ const StepSequencer = () => {
   const rows = 4;
   const maxSteps = 128;
   const minSteps = 8;
+  const maxBPM = 999;
+  const minBPM = 1;
 
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
@@ -106,8 +108,8 @@ const StepSequencer = () => {
       <div className="bpm-control">
         <input
           type="range"
-          min="60"
-          max="200"
+          min={minBPM}
+          max={maxBPM}
           value={bpm}
           onChange={handleBpmChange}
         />
