@@ -2,11 +2,18 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import * as Tone from "tone";
 
 const StepSequencer = () => {
+  const rows = 4;
+
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [steps, setSteps] = useState(64);
-  const rows = 4;
+  const [sequence, setSequence] = useState(
+    Array(rows).fill(Array(steps).fill(false))
+  );
+
+  const [notes, setNotes] = useState(Array(rows).fill("C3")); // New state for notes
+
   const instruments = useMemo(
     () => [
       new Tone.AMSynth().toDestination(),
@@ -16,12 +23,6 @@ const StepSequencer = () => {
     ],
     []
   );
-
-  const [sequence, setSequence] = useState(
-    Array(rows).fill(Array(steps).fill(false))
-  );
-
-  const [notes, setNotes] = useState(Array(rows).fill("C3")); // New state for notes
 
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
