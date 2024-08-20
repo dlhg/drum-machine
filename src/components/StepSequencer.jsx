@@ -3,6 +3,8 @@ import * as Tone from "tone";
 
 const StepSequencer = () => {
   const rows = 4;
+  const maxSteps = 128;
+  const minSteps = 8;
 
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
@@ -72,8 +74,11 @@ const StepSequencer = () => {
   }, []);
 
   const handleStepsChange = useCallback((e) => {
-    if (e.target.value > 128) {
-      e.target.value = 128;
+    if (e.target.value > maxSteps) {
+      e.target.value = maxSteps;
+    }
+    if (e.target.value < minSteps) {
+      e.target.value = minSteps;
     }
 
     const newSteps = parseInt(e.target.value, 10);
@@ -111,8 +116,8 @@ const StepSequencer = () => {
       <div className="steps-control">
         <input
           type="number"
-          min="8"
-          max="128"
+          min={minSteps}
+          max={maxSteps}
           value={steps}
           onChange={handleStepsChange}
         />
