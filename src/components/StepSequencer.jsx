@@ -72,6 +72,10 @@ const StepSequencer = () => {
   }, []);
 
   const handleStepsChange = useCallback((e) => {
+    if (e.target.value > 128) {
+      e.target.value = 128;
+    }
+
     const newSteps = parseInt(e.target.value, 10);
     setSteps(newSteps);
     setSequence((prevSequence) =>
@@ -106,7 +110,7 @@ const StepSequencer = () => {
       </div>
       <div className="steps-control">
         <input
-          type="range"
+          type="number"
           min="8"
           max="128"
           value={steps}
