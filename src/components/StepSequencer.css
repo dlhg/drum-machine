@@ -1,4 +1,3 @@
-/* Steps Slider and Labels */
 .steps-control {
   display: flex;
   align-items: center;
@@ -13,7 +12,6 @@
   margin-left: 10px;
 }
 
-/* Container for the entire sequencer */
 .sequencer-container {
   display: flex;
   flex-direction: column;
@@ -22,7 +20,6 @@
   font-family: Arial, sans-serif;
 }
 
-/* BPM Slider and Labels */
 .bpm-control {
   display: flex;
   align-items: center;
@@ -64,7 +61,6 @@
   background-color: #0056b3;
 }
 
-/* Grid of steps */
 .sequencer-grid {
   display: flex;
   flex-direction: column;
@@ -75,7 +71,6 @@
   margin-bottom: 5px;
 }
 
-/* Individual steps */
 .step {
   width: 25px;
   height: 25px;
@@ -86,17 +81,14 @@
   transition: background-color 0.2s;
 }
 
-/* Step that is active */
 .step.active {
   background-color: green;
 }
 
-/* Step that is playing */
 .step.playing {
   background-color: orange;
 }
 
-/* Step that is both active and playing */
 .step.active.playing {
   background-color: yellow;
 }
