@@ -5,7 +5,7 @@ const StepSequencer = () => {
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [steps, setSteps] = useState(64); // New state for steps
+  const [steps, setSteps] = useState(64);
   const rows = 4;
   const instruments = useMemo(
     () => [
@@ -21,6 +21,8 @@ const StepSequencer = () => {
     Array(rows).fill(Array(steps).fill(false))
   );
 
+  const [notes, setNotes] = useState(Array(rows).fill("C3")); // New state for notes
+
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
 
@@ -29,7 +31,7 @@ const StepSequencer = () => {
         setCurrentStep(step);
         sequence.forEach((row, index) => {
           if (row[step]) {
-            instruments[index].triggerAttackRelease("C3", "16n", time);
+            instruments[index].triggerAttackRelease(notes[index], "16n", time); // Use selected note
           }
         });
       },
@@ -38,7 +40,7 @@ const StepSequencer = () => {
     ).start(0);
 
     return () => loop.dispose();
-  }, [bpm, sequence, instruments, steps]);
+  }, [bpm, sequence, instruments, steps, notes]);
 
   const toggleStep = useCallback((row, step) => {
     setSequence((prevSequence) =>
@@ -82,6 +84,13 @@ const StepSequencer = () => {
     );
   }, []);
 
+  const handleNoteChange = useCallback((rowIndex, e) => {
+    const newNote = e.target.value;
+    setNotes((prevNotes) =>
+      prevNotes.map((note, i) => (i === rowIndex ? newNote : note))
+    );
+  }, []);
+
   return (
     <div className="sequencer-container">
       <div className="bpm-control">
@@ -118,6 +127,17 @@ const StepSequencer = () => {
       <div className="sequencer-grid">
         {sequence.map((row, rowIndex) => (
           <div key={rowIndex} className="sequencer-row">
+            <select
+              value={notes[rowIndex]}
+              onChange={(e) => handleNoteChange(rowIndex, e)}
+              className="note-dropdown"
+            >
+              {["C3", "D3", "E3", "F3", "G3", "A3", "B3"].map((note) => (
+                <option key={note} value={note}>
+                  {note}
+                </option>
+              ))}
+            </select>
             {row.map((step, stepIndex) => (
               <div
                 key={stepIndex}
