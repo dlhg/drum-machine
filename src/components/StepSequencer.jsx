@@ -16,7 +16,8 @@ const StepSequencer = () => {
     Array(rows).fill(Array(steps).fill(false))
   );
 
-  const [notes, setNotes] = useState(Array(rows).fill("C3")); // New state for notes
+  // default note
+  const [notes, setNotes] = useState(Array(rows).fill("C3"));
 
   const instruments = useMemo(
     () => [
