@@ -28,9 +28,25 @@ const StepSequencer = () => {
     ],
     []
   );
+
   const clearSequence = useCallback(() => {
     setSequence(Array(rows).fill(Array(steps).fill(false)));
   }, [rows, steps]);
+
+  const invertSequence = useCallback(() => {
+    setSequence((prevSequence) => {
+      const newSequence = [];
+      for (let i = 0; i < rows; i++) {
+        newSequence.push(
+          prevSequence[i].map((step) => {
+            return !step;
+          })
+        );
+      }
+      return newSequence;
+    });
+  }, [rows]);
+
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
 
@@ -139,6 +155,7 @@ const StepSequencer = () => {
           Stop
         </button>
         <button onClick={clearSequence}>Clear Sequence</button>
+        <button onClick={invertSequence}>Invert Sequence</button>
       </div>
       <div className="sequencer-grid">
         {sequence.map((row, rowIndex) => (
