@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import * as Tone from "tone";
+import BpmControl from "./BpmControl";
+import StepsControl from "./StepsControl";
+import SequencerButtons from "./SequencerButtons";
+import StepGrid from "./StepGrid";
 
 const StepSequencer = () => {
   const rows = 4;
@@ -11,12 +15,10 @@ const StepSequencer = () => {
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [steps, setSteps] = useState(64);
+  const [steps, setSteps] = useState(16);
   const [sequence, setSequence] = useState(
     Array(rows).fill(Array(steps).fill(false))
   );
-
-  // default note
   const [notes, setNotes] = useState(Array(rows).fill("C3"));
 
   const instruments = useMemo(
@@ -55,7 +57,7 @@ const StepSequencer = () => {
         setCurrentStep(step);
         sequence.forEach((row, index) => {
           if (row[step]) {
-            instruments[index].triggerAttackRelease(notes[index], "16n", time); // Use selected note
+            instruments[index].triggerAttackRelease(notes[index], "16n", time);
           }
         });
       },
@@ -124,78 +126,33 @@ const StepSequencer = () => {
 
   return (
     <div className="sequencer-container">
-      <div className="bpm-control">
-        <input
-          type="range"
-          min={minBPM}
-          max={maxBPM}
-          value={bpm}
-          onChange={handleBpmChange}
-        />
-        <span className="bpm-label">{bpm} BPM</span>
-      </div>
-      <div className="steps-control">
-        <input
-          type="number"
-          min={minSteps}
-          max={maxSteps}
-          value={steps}
-          onChange={handleStepsChange}
-        />
-        <span className="steps-label">{steps} Steps</span>
-      </div>
-      <div className="sequencer-buttons">
-        <button onClick={startSequencer} disabled={playing}>
-          Play
-        </button>
-        <button onClick={pauseSequencer} disabled={!playing}>
-          Pause
-        </button>
-        <button onClick={stopSequencer} disabled={!playing}>
-          Stop
-        </button>
-        <button onClick={clearSequence}>Clear Sequence</button>
-        <button onClick={invertSequence}>Invert Sequence</button>
-      </div>
-      <div className="sequencer-grid">
-        {sequence.map((row, rowIndex) => (
-          <div key={rowIndex} className="sequencer-row">
-            <select
-              value={notes[rowIndex]}
-              onChange={(e) => handleNoteChange(rowIndex, e)}
-              className="note-dropdown"
-            >
-              {[
-                "C3",
-                "C#3",
-                "D3",
-                "D#3",
-                "E3",
-                "F3",
-                "F#3",
-                "G3",
-                "G#3",
-                "A3",
-                "A#3",
-                "B3",
-              ].map((note) => (
-                <option key={note} value={note}>
-                  {note}
-                </option>
-              ))}
-            </select>
-            {row.map((step, stepIndex) => (
-              <div
-                key={stepIndex}
-                onClick={() => toggleStep(rowIndex, stepIndex)}
-                className={`step ${step ? "active" : ""} ${
-                  currentStep === stepIndex ? "playing" : ""
-                }`}
-              ></div>
-            ))}
-          </div>
-        ))}
-      </div>
+      <BpmControl
+        bpm={bpm}
+        minBPM={minBPM}
+        maxBPM={maxBPM}
+        handleBpmChange={handleBpmChange}
+      />
+      <StepsControl
+        steps={steps}
+        minSteps={minSteps}
+        maxSteps={maxSteps}
+        handleStepsChange={handleStepsChange}
+      />
+      <SequencerButtons
+        playing={playing}
+        startSequencer={startSequencer}
+        pauseSequencer={pauseSequencer}
+        stopSequencer={stopSequencer}
+        clearSequence={clearSequence}
+        invertSequence={invertSequence}
+      />
+      <StepGrid
+        sequence={sequence}
+        currentStep={currentStep}
+        toggleStep={toggleStep}
+        notes={notes}
+        handleNoteChange={handleNoteChange}
+      />
     </div>
   );
 };
