@@ -28,7 +28,9 @@ const StepSequencer = () => {
     ],
     []
   );
-
+  const clearSequence = useCallback(() => {
+    setSequence(Array(rows).fill(Array(steps).fill(false)));
+  }, [rows, steps]);
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
 
@@ -136,6 +138,7 @@ const StepSequencer = () => {
         <button onClick={stopSequencer} disabled={!playing}>
           Stop
         </button>
+        <button onClick={clearSequence}>Clear Sequence</button>
       </div>
       <div className="sequencer-grid">
         {sequence.map((row, rowIndex) => (
