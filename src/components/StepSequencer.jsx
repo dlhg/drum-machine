@@ -12,6 +12,8 @@ const StepSequencer = () => {
   const maxBPM = 999;
   const minBPM = 1;
 
+  // useState
+
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -20,6 +22,8 @@ const StepSequencer = () => {
     Array(rows).fill(Array(steps).fill(false))
   );
   const [notes, setNotes] = useState(Array(rows).fill("C3"));
+
+  // useMemo
 
   const instruments = useMemo(
     () => [
@@ -31,42 +35,7 @@ const StepSequencer = () => {
     []
   );
 
-  const clearSequence = useCallback(() => {
-    setSequence(Array(rows).fill(Array(steps).fill(false)));
-  }, [rows, steps]);
-
-  const invertSequence = useCallback(() => {
-    setSequence((prevSequence) => {
-      const newSequence = [];
-      for (let i = 0; i < rows; i++) {
-        newSequence.push(
-          prevSequence[i].map((step) => {
-            return !step;
-          })
-        );
-      }
-      return newSequence;
-    });
-  }, [rows]);
-
-  useEffect(() => {
-    Tone.Transport.bpm.value = bpm;
-
-    const loop = new Tone.Sequence(
-      (time, step) => {
-        setCurrentStep(step);
-        sequence.forEach((row, index) => {
-          if (row[step]) {
-            instruments[index].triggerAttackRelease(notes[index], "16n", time);
-          }
-        });
-      },
-      Array.from({ length: steps }, (_, i) => i),
-      "16n"
-    ).start(0);
-
-    return () => loop.dispose();
-  }, [bpm, sequence, instruments, steps, notes]);
+  // useCallBack
 
   const toggleStep = useCallback((row, step) => {
     setSequence((prevSequence) =>
@@ -123,6 +92,45 @@ const StepSequencer = () => {
       prevNotes.map((note, i) => (i === rowIndex ? newNote : note))
     );
   }, []);
+
+  const clearSequence = useCallback(() => {
+    setSequence(Array(rows).fill(Array(steps).fill(false)));
+  }, [rows, steps]);
+
+  const invertSequence = useCallback(() => {
+    setSequence((prevSequence) => {
+      const newSequence = [];
+      for (let i = 0; i < rows; i++) {
+        newSequence.push(
+          prevSequence[i].map((step) => {
+            return !step;
+          })
+        );
+      }
+      return newSequence;
+    });
+  }, [rows]);
+
+  // useEffect
+
+  useEffect(() => {
+    Tone.Transport.bpm.value = bpm;
+
+    const loop = new Tone.Sequence(
+      (time, step) => {
+        setCurrentStep(step);
+        sequence.forEach((row, index) => {
+          if (row[step]) {
+            instruments[index].triggerAttackRelease(notes[index], "16n", time);
+          }
+        });
+      },
+      Array.from({ length: steps }, (_, i) => i),
+      "16n"
+    ).start(0);
+
+    return () => loop.dispose();
+  }, [bpm, sequence, instruments, steps, notes]);
 
   return (
     <div className="sequencer-container">
