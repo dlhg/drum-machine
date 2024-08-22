@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import * as Tone from "tone";
 import BpmControl from "./BpmControl";
-import StepsControl from "./StepsControl";
+import NumberOfStepsControl from "./NumberOfStepsControl";
 import SequencerButtons from "./SequencerButtons";
 import StepGrid from "./StepGrid";
 
@@ -140,7 +140,7 @@ const StepSequencer = () => {
         maxBPM={maxBPM}
         handleBpmChange={handleBpmChange}
       />
-      <StepsControl
+      <NumberOfStepsControl
         steps={steps}
         minSteps={minSteps}
         maxSteps={maxSteps}

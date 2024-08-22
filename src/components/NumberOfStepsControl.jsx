@@ -1,6 +1,11 @@
 import React from "react";
 
-const StepsControl = ({ steps, minSteps, maxSteps, handleStepsChange }) => (
+const NumberOfStepsControl = ({
+  steps,
+  minSteps,
+  maxSteps,
+  handleStepsChange,
+}) => (
   <div className="steps-control">
     <input
       type="number"
@@ -13,4 +18,4 @@ const StepsControl = ({ steps, minSteps, maxSteps, handleStepsChange }) => (
   </div>
 );
 
-export default React.memo(StepsControl);
+export default React.memo(NumberOfStepsControl);
