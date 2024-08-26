@@ -4,6 +4,7 @@ import BpmControl from "./BpmControl";
 import NumberOfStepsControl from "./NumberOfStepsControl";
 import SequencerButtons from "./SequencerButtons";
 import StepGrid from "./StepGrid";
+import ConfirmationPopup from "./ConfirmationPopup";
 
 const StepSequencer = () => {
   const rows = 4;
@@ -22,6 +23,9 @@ const StepSequencer = () => {
     Array(rows).fill(Array(steps).fill(false))
   );
   const [notes, setNotes] = useState(Array(rows).fill("C3"));
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupAction, setPopupAction] = useState(null);
+  const [showPopupPreference, setShowPopupPreference] = useState(true);
 
   // useMemo
 
@@ -94,8 +98,16 @@ const StepSequencer = () => {
   }, []);
 
   const clearSequence = useCallback(() => {
-    setSequence(Array(rows).fill(Array(steps).fill(false)));
-  }, [rows, steps]);
+    if (showPopupPreference) {
+      setPopupAction(() => () => {
+        setSequence(Array(rows).fill(Array(steps).fill(false)));
+        setShowPopup(false);
+      });
+      setShowPopup(true);
+    } else {
+      setSequence(Array(rows).fill(Array(steps).fill(false)));
+    }
+  }, [rows, steps, showPopupPreference]);
 
   const invertSequence = useCallback(() => {
     setSequence((prevSequence) => {
@@ -110,6 +122,20 @@ const StepSequencer = () => {
       return newSequence;
     });
   }, [rows]);
+
+  const handleConfirm = useCallback(() => {
+    if (popupAction) {
+      popupAction();
+    }
+  }, [popupAction]);
+
+  const handleCancel = useCallback(() => {
+    setShowPopup(false);
+  }, []);
+
+  const handlePreferenceChange = useCallback((e) => {
+    setShowPopupPreference(!e.target.checked);
+  }, []);
 
   // useEffect
 
@@ -161,6 +187,13 @@ const StepSequencer = () => {
         notes={notes}
         handleNoteChange={handleNoteChange}
       />
+      {showPopup && (
+        <ConfirmationPopup
+          onConfirm={handleConfirm}
+          onCancel={handleCancel}
+          onPreferenceChange={handlePreferenceChange}
+        />
+      )}
     </div>
   );
 };
