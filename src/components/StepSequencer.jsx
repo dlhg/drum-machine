@@ -13,7 +13,7 @@ import hiHat from "../assets/DrumSounds/3.wav";
 import tom from "../assets/DrumSounds/4.wav";
 
 const StepSequencer = () => {
-  const rows = 4;
+  const rows = 8;
   const maxSteps = 128;
   const minSteps = 1;
   const maxBPM = 999;
@@ -37,6 +37,10 @@ const StepSequencer = () => {
 
   const instruments = useMemo(
     () => [
+      new Tone.Sampler({ C3: kick }).toDestination(),
+      new Tone.Sampler({ C3: snare }).toDestination(),
+      new Tone.Sampler({ C3: hiHat }).toDestination(),
+      new Tone.Sampler({ C3: tom }).toDestination(),
       new Tone.Sampler({ C3: kick }).toDestination(),
       new Tone.Sampler({ C3: snare }).toDestination(),
       new Tone.Sampler({ C3: hiHat }).toDestination(),
