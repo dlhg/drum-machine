@@ -36,6 +36,16 @@ const StepSequencer = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupAction, setPopupAction] = useState(null);
   const [showPopupPreference, setShowPopupPreference] = useState(true);
+  const sampleNames = [
+    "Kick",
+    "Clap",
+    "Closed Hat",
+    "Conga",
+    "808 Bass",
+    "Rimshot",
+    "Open Hat",
+    "Closed Hat 2",
+  ]; // Add sample names
 
   // useMemo
 
@@ -200,6 +210,7 @@ const StepSequencer = () => {
         toggleStep={toggleStep}
         notes={notes}
         handleNoteChange={handleNoteChange}
+        sampleNames={sampleNames}
       />
       {showPopup && (
         <ConfirmationPopup
