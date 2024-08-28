@@ -7,10 +7,14 @@ import StepGrid from "./StepGrid";
 import ConfirmationPopup from "./ConfirmationPopup";
 
 // Import drum sounds
-import kick from "../assets/DrumSounds/1.wav";
-import snare from "../assets/DrumSounds/2.wav";
-import hiHat from "../assets/DrumSounds/3.wav";
-import tom from "../assets/DrumSounds/4.wav";
+import kick from "../assets/DrumSounds/kick.wav";
+import clap from "../assets/DrumSounds/clap.wav";
+import closedhat from "../assets/DrumSounds/closedhat.wav";
+import closedhat2 from "../assets/DrumSounds/closedhat2.wav";
+import conga from "../assets/DrumSounds/conga.wav";
+import eightoheightbass from "../assets/DrumSounds/808bass.wav";
+import rimshot from "../assets/DrumSounds/rimshot.wav";
+import openhat from "../assets/DrumSounds/openhat.wav";
 
 const StepSequencer = () => {
   const rows = 8;
@@ -38,13 +42,13 @@ const StepSequencer = () => {
   const instruments = useMemo(
     () => [
       new Tone.Sampler({ C3: kick }).toDestination(),
-      new Tone.Sampler({ C3: snare }).toDestination(),
-      new Tone.Sampler({ C3: hiHat }).toDestination(),
-      new Tone.Sampler({ C3: tom }).toDestination(),
-      new Tone.Sampler({ C3: kick }).toDestination(),
-      new Tone.Sampler({ C3: snare }).toDestination(),
-      new Tone.Sampler({ C3: hiHat }).toDestination(),
-      new Tone.Sampler({ C3: tom }).toDestination(),
+      new Tone.Sampler({ C3: clap }).toDestination(),
+      new Tone.Sampler({ C3: closedhat }).toDestination(),
+      new Tone.Sampler({ C3: conga }).toDestination(),
+      new Tone.Sampler({ C3: eightoheightbass }).toDestination(),
+      new Tone.Sampler({ C3: rimshot }).toDestination(),
+      new Tone.Sampler({ C3: openhat }).toDestination(),
+      new Tone.Sampler({ C3: closedhat2 }).toDestination(),
     ],
     []
   );
