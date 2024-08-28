@@ -6,6 +6,12 @@ import SequencerButtons from "./SequencerButtons";
 import StepGrid from "./StepGrid";
 import ConfirmationPopup from "./ConfirmationPopup";
 
+// Import drum sounds
+import kick from "../assets/DrumSounds/1.wav";
+import snare from "../assets/DrumSounds/2.wav";
+import hiHat from "../assets/DrumSounds/3.wav";
+import tom from "../assets/DrumSounds/4.wav";
+
 const StepSequencer = () => {
   const rows = 4;
   const maxSteps = 128;
@@ -31,10 +37,10 @@ const StepSequencer = () => {
 
   const instruments = useMemo(
     () => [
-      new Tone.AMSynth().toDestination(),
-      new Tone.FMSynth().toDestination(),
-      new Tone.PluckSynth().toDestination(),
-      new Tone.MonoSynth().toDestination(),
+      new Tone.Sampler({ C3: kick }).toDestination(),
+      new Tone.Sampler({ C3: snare }).toDestination(),
+      new Tone.Sampler({ C3: hiHat }).toDestination(),
+      new Tone.Sampler({ C3: tom }).toDestination(),
     ],
     []
   );
