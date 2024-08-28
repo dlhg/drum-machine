@@ -1,0 +1,5 @@
+
+
+- dynamically assign samples to a row via sample browser
+- volume/mute/solo for each row
+- ability to select a specific step and edit values (pitch/volume/FX sends etc)
