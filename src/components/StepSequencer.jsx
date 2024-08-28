@@ -9,7 +9,7 @@ import ConfirmationPopup from "./ConfirmationPopup";
 const StepSequencer = () => {
   const rows = 4;
   const maxSteps = 128;
-  const minSteps = 8;
+  const minSteps = 1;
   const maxBPM = 999;
   const minBPM = 1;
 
