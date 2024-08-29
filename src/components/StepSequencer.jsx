@@ -41,9 +41,9 @@ const StepSequencer = () => {
   const [bpm, setBpm] = useState(120);
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [steps, setSteps] = useState(16);
+  const [numOfSteps, setSteps] = useState(16);
   const [sequence, setSequence] = useState(
-    Array(rows).fill(Array(steps).fill(false))
+    Array(rows).fill(Array(numOfSteps).fill(false))
   );
   const [notes, setNotes] = useState(Array(rows).fill("C3"));
 
@@ -128,14 +128,14 @@ const StepSequencer = () => {
   const clearSequence = useCallback(() => {
     if (showPopupPreference) {
       setPopupAction(() => () => {
-        setSequence(Array(rows).fill(Array(steps).fill(false)));
+        setSequence(Array(rows).fill(Array(numOfSteps).fill(false)));
         setShowPopup(false);
       });
       setShowPopup(true);
     } else {
-      setSequence(Array(rows).fill(Array(steps).fill(false)));
+      setSequence(Array(rows).fill(Array(numOfSteps).fill(false)));
     }
-  }, [rows, steps, showPopupPreference]);
+  }, [rows, numOfSteps, showPopupPreference]);
 
   const invertSequence = useCallback(() => {
     setSequence((prevSequence) => {
@@ -179,12 +179,12 @@ const StepSequencer = () => {
           }
         });
       },
-      Array.from({ length: steps }, (_, i) => i),
+      Array.from({ length: numOfSteps }, (_, i) => i),
       "16n"
     ).start(0);
 
     return () => loop.dispose();
-  }, [bpm, sequence, instruments, steps, notes]);
+  }, [bpm, sequence, instruments, numOfSteps, notes]);
 
   return (
     <div className="sequencer-container">
@@ -213,7 +213,7 @@ const StepSequencer = () => {
         handleBpmChange={handleBpmChange}
       />
       <NumberOfStepsControl
-        steps={steps}
+        steps={numOfSteps}
         minSteps={minSteps}
         maxSteps={maxSteps}
         handleStepsChange={handleStepsChange}
