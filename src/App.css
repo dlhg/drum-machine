@@ -67,10 +67,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 .step.active {
-  background-color: green;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  outline: 1px solid rgb(0, 0, 0);
 }
 
 .step.playing {
