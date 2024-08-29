@@ -7,13 +7,12 @@ const StepGrid = ({
   toggleStep,
   notes,
   handleNoteChange,
-  sampleNames, // Add sampleNames prop
+  sampleNames,
 }) => (
   <div className="sequencer-grid">
     {sequence.map((row, rowIndex) => (
       <div key={rowIndex} className="sequencer-row">
         <div className="sample-name">{sampleNames[rowIndex]}</div>{" "}
-        {/* Add sample name */}
         <NoteDropdown
           note={notes[rowIndex]}
           rowIndex={rowIndex}
