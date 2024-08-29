@@ -22,6 +22,16 @@ const StepSequencer = () => {
   const minSteps = 1;
   const maxBPM = 999;
   const minBPM = 1;
+  const sampleNames = [
+    "Kick",
+    "Clap",
+    "Closed Hat",
+    "Conga",
+    "808 Bass",
+    "Rimshot",
+    "Open Hat",
+    "Closed Hat 2",
+  ];
 
   // useState
 
@@ -33,19 +43,10 @@ const StepSequencer = () => {
     Array(rows).fill(Array(steps).fill(false))
   );
   const [notes, setNotes] = useState(Array(rows).fill("C3"));
+
   const [showPopup, setShowPopup] = useState(false);
   const [popupAction, setPopupAction] = useState(null);
   const [showPopupPreference, setShowPopupPreference] = useState(true);
-  const sampleNames = [
-    "Kick",
-    "Clap",
-    "Closed Hat",
-    "Conga",
-    "808 Bass",
-    "Rimshot",
-    "Open Hat",
-    "Closed Hat 2",
-  ]; // Add sample names
 
   // useMemo
 
