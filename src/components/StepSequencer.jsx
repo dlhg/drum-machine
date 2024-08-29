@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import * as Tone from "tone";
+
+// Import components
 import BpmControl from "./BpmControl";
 import NumberOfStepsControl from "./NumberOfStepsControl";
 import SequencerButtons from "./SequencerButtons";
@@ -16,6 +18,7 @@ import eightoheightbass from "../assets/DrumSounds/808bass.wav";
 import rimshot from "../assets/DrumSounds/rimshot.wav";
 import openhat from "../assets/DrumSounds/openhat.wav";
 
+// Consts
 const StepSequencer = () => {
   const rows = 8;
   const maxSteps = 128;
