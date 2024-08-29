@@ -27,7 +27,7 @@ const StepGrid = ({
                 currentStep === stepIndex ? "playing" : ""
               }`}
             >
-              {stepIndex}
+              {stepIndex + 1}
             </div>
           ))}
         </div>
