@@ -26,7 +26,9 @@ const StepGrid = ({
               className={`step ${step ? "active" : ""} ${
                 currentStep === stepIndex ? "playing" : ""
               }`}
-            ></div>
+            >
+              {stepIndex}
+            </div>
           ))}
         </div>
       </div>

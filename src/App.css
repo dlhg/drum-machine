@@ -121,11 +121,11 @@
 }
 
 .sample-name {
-  width: 150px; /* Fixed width to prevent displacement */
-  margin-right: 10px; /* Space between sample name and dropdown */
-  white-space: nowrap; /* Prevent text wrapping */
+  width: 150px;
+  margin-right: 10px;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  text-overflow: ellipsis;
 }
 
 .steps-container {
