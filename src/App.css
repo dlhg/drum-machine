@@ -72,16 +72,16 @@
 
 .step.active {
   color: rgb(255, 255, 255);
-  font-weight: bold;
-  outline: 1px solid rgb(0, 0, 0);
+  font-weight: bolder;
+  outline: 3px solid rgb(0, 0, 0);
 }
 
 .step.playing {
-  background-color: orange;
+  background-color: rgb(194, 194, 194);
 }
 
 .step.active.step.playing {
-  background-color: red;
+  background-color: rgb(0, 0, 0);
 }
 
 .confirmation-popup {
