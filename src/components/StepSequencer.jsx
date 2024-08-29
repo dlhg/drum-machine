@@ -46,6 +46,7 @@ const StepSequencer = () => {
     Array(rows).fill(Array(numOfSteps).fill(false))
   );
   const [notes, setNotes] = useState(Array(rows).fill("C3"));
+  const [stepValue, setStepValue] = useState("16n");
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupAction, setPopupAction] = useState(null);
@@ -170,7 +171,7 @@ const StepSequencer = () => {
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
     // 0 swing is default (max value 1), just putting this here in case I want to add swing later
-    Tone.Transport.swing = 0;
+    Tone.Transport.swing = 1;
 
     const loop = new Tone.Sequence(
       (time, step) => {
@@ -182,7 +183,8 @@ const StepSequencer = () => {
         });
       },
       Array.from({ length: numOfSteps }, (_, i) => i),
-      "16n"
+      // stepValue is a string that represents the note duration (16n, 8n, 4n, etc)
+      stepValue
     ).start(0);
 
     return () => loop.dispose();
