@@ -4,3 +4,4 @@
 - volume/mute/solo for each row
 - ability to select a specific step and edit values (pitch/volume/FX sends etc)
 - visualizer
+- randomizer
