@@ -5,3 +5,6 @@
 - ability to select a specific step and edit values (pitch/volume/FX sends etc)
 - visualizer
 - randomizer
+- save patterns
+- switch between patterns
+- set up scenes with progressions consisting of multiple patterns
