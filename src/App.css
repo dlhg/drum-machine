@@ -99,7 +99,7 @@ body {
 
 .step.playing {
   background-color: rgb(194, 194, 194);
-  animation: pulse 0.1s;
+  /* animation: pulse 0.5s; */
 }
 
 .step.active.step.playing {
