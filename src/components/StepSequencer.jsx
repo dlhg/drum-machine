@@ -171,7 +171,7 @@ const StepSequencer = () => {
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
     // 0 swing is default (max value 1), just putting this here in case I want to add swing later
-    Tone.Transport.swing = 0;
+    // Tone.Transport.swing = 0;
 
     const loop = new Tone.Sequence(
       (time, step) => {
