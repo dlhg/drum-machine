@@ -91,7 +91,7 @@ body {
 }
 
 .step.active {
-  background-color: #acacac;
+  background-color: #fd5454;
   color: rgb(255, 255, 255);
   font-weight: bolder;
   outline: 3px solid rgb(0, 0, 0);
