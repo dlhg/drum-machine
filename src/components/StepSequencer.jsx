@@ -7,6 +7,7 @@ import NumberOfStepsControl from "./NumberOfStepsControl";
 import SequencerButtons from "./SequencerButtons";
 import StepGrid from "./StepGrid";
 import ConfirmationPopup from "./ConfirmationPopup";
+import StepValueControl from "./StepValueControl";
 
 // Import drum sounds
 import kick from "../assets/DrumSounds/kick.wav";
@@ -188,7 +189,7 @@ const StepSequencer = () => {
     ).start(0);
 
     return () => loop.dispose();
-  }, [bpm, sequence, instruments, numOfSteps, notes]);
+  }, [bpm, sequence, instruments, numOfSteps, notes, stepValue]);
 
   return (
     <div className="sequencer-container">
@@ -222,6 +223,7 @@ const StepSequencer = () => {
         maxSteps={maxSteps}
         handleStepsChange={handleStepsChange}
       />
+      <StepValueControl stepValue={stepValue} setStepValue={setStepValue} />
 
       {showPopup && (
         <ConfirmationPopup
