@@ -9,14 +9,14 @@ const SequencerButtons = ({
   invertSequence,
 }) => (
   <div className="sequencer-buttons">
-    <button onClick={startSequencer} disabled={playing}>
-      Play
-    </button>
-    <button onClick={pauseSequencer} disabled={!playing}>
-      Pause
+    <button
+      onClick={playing ? pauseSequencer : startSequencer}
+      // disabled={playing}
+    >
+      {playing ? "⏸️" : "▶️"}
     </button>
     <button onClick={stopSequencer} disabled={!playing}>
-      Stop
+      ⏹
     </button>
     <button onClick={clearSequence}>Clear Sequence</button>
     <button onClick={invertSequence}>Invert Sequence</button>
