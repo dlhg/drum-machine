@@ -1,3 +1,15 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -86,6 +98,7 @@ body {
 
 .step.playing {
   background-color: rgb(194, 194, 194);
+  animation: pulse 0.1s;
 }
 
 .step.active.step.playing {
@@ -137,9 +150,7 @@ body {
 .sample-name {
   width: 150px;
   margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-weight: 700;
 }
 
 .steps-container {
