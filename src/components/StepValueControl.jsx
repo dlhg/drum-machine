@@ -1,5 +1,3 @@
-// this component helps the user to adjust the stepValue state
-
 import React from "react";
 
 const StepValueControl = ({ stepValue, setStepValue }) => {
