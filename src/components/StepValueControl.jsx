@@ -4,6 +4,16 @@ import React from "react";
 
 const StepValueControl = ({ stepValue, setStepValue }) => {
   const stepValues = ["1n", "2n", "4n", "8n", "16n", "32n", "64n", "128n"];
+  const stepValuesInEnglish = {
+    "1n": "whole note",
+    "2n": "half note",
+    "4n": "quarter note",
+    "8n": "eighth note",
+    "16n": "sixteenth note",
+    "32n": "thirty-second note",
+    "64n": "sixty-fourth note",
+    "128n": "one hundred twenty-eighth note",
+  };
 
   return (
     <div>
@@ -14,11 +24,11 @@ const StepValueControl = ({ stepValue, setStepValue }) => {
             className={`step-value ${stepValue === value ? "active" : ""}`}
             onClick={() => setStepValue(value)}
           >
-            {value}
+            {stepValuesInEnglish[value]}
           </button>
         ))}
       </div>
-      <div>the current step value is {stepValue}</div>
+      <div>the current step value is {stepValuesInEnglish[stepValue]}</div>
     </div>
   );
 };
