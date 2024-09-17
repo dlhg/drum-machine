@@ -14,19 +14,18 @@ const StepValueControl = ({ stepValue, setStepValue }) => {
   };
 
   return (
-    <div>
-      <div className="step-value-control">
-        {stepValues.map((value, index) => (
-          <button
-            key={index}
-            className={`step-value ${stepValue === value ? "active" : ""}`}
-            onClick={() => setStepValue(value)}
-          >
-            {stepValuesInEnglish[value]}
-          </button>
+    <div className="step-value-control">
+      <select
+        value={stepValue}
+        onChange={(e) => setStepValue(e.target.value)}
+        className="step-value-dropdown"
+      >
+        {stepValues.map((value) => (
+          <option key={value} value={value}>
+            step value = {stepValuesInEnglish[value]}
+          </option>
         ))}
-      </div>
-      <div>the current step value is {stepValuesInEnglish[stepValue]}</div>
+      </select>
     </div>
   );
 };
