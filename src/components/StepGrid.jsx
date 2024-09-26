@@ -11,7 +11,7 @@ const StepGrid = ({
 }) => {
   const [clickedStep, setClickedStep] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const stepsPerPage = 8;
+  const stepsPerPage = 16;
 
   const handleStepClick = (rowIndex, stepIndex) => {
     toggleStep(rowIndex, stepIndex);

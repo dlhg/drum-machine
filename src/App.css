@@ -16,14 +16,6 @@ body {
   background-color: #acacac;
 }
 
-.sequencer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  font-family: Arial, sans-serif;
-}
-
 .controls-container {
   display: flex;
   flex-direction: row;
@@ -42,6 +34,17 @@ body {
 
 .bpm-label {
   font-size: 16px;
+}
+
+.sequencer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+}
+
+.sequencer-grid {
 }
 
 .sequencer-buttons {
