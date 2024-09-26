@@ -9,7 +9,7 @@ const BpmControl = ({ bpm, minBPM, maxBPM, handleBpmChange }) => (
       value={bpm}
       onChange={handleBpmChange}
     />
-    <span className="bpm-label">{bpm} BPM</span>
+    <span className="bpm-label">BPM</span>
   </div>
 );
 
