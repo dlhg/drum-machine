@@ -15,8 +15,8 @@ const SequencerButtons = ({
     <button onClick={stopSequencer} disabled={!playing}>
       STOP
     </button>
-    <button onClick={clearSequence}>Clear Sequence</button>
-    <button onClick={invertSequence}>Invert Sequence</button>
+    <button onClick={clearSequence}>CLEAR</button>
+    <button onClick={invertSequence}>INVERT</button>
   </div>
 );
 
