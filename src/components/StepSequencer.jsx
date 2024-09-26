@@ -106,26 +106,36 @@ const StepSequencer = () => {
     setBpm(e.target.value);
   }, []);
 
-  const handleStepsChange = useCallback((e) => {
-    if (e.target.value > maxSteps) {
-      e.target.value = maxSteps;
-    }
-    if (e.target.value < minSteps) {
-      e.target.value = minSteps;
-    }
+  const handleStepsChange = useCallback(
+    (e) => {
+      if (e.target.value > maxSteps) {
+        e.target.value = maxSteps;
+      }
+      if (e.target.value < minSteps) {
+        e.target.value = minSteps;
+      }
 
-    const newSteps = parseInt(e.target.value, 10);
-    setSteps(newSteps);
-    setSequence((prevSequence) =>
-      prevSequence.map((row) => {
-        const newRow = Array(newSteps).fill(false);
-        row.slice(0, newSteps).forEach((val, idx) => {
-          newRow[idx] = val;
-        });
-        return newRow;
-      })
-    );
-  }, []);
+      const newSteps = parseInt(e.target.value, 10);
+      setSteps(newSteps);
+
+      // Calculate the highest valid page based on the new number of steps
+      const highestValidPage = Math.floor((newSteps - 1) / stepsPerPage);
+      if (currentPage > highestValidPage) {
+        setCurrentPage(highestValidPage);
+      }
+
+      setSequence((prevSequence) =>
+        prevSequence.map((row) => {
+          const newRow = Array(newSteps).fill(false);
+          row.slice(0, newSteps).forEach((val, idx) => {
+            newRow[idx] = val;
+          });
+          return newRow;
+        })
+      );
+    },
+    [currentPage, stepsPerPage]
+  );
 
   const handleNoteChange = useCallback((rowIndex, e) => {
     const newNote = e.target.value;
