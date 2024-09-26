@@ -20,14 +20,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+
   font-family: Arial, sans-serif;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .bpm-control {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .bpm-control input[type="range"] {
@@ -37,11 +42,9 @@ body {
 
 .bpm-label {
   font-size: 16px;
-  margin-left: 10px;
 }
 
 .sequencer-buttons {
-  margin-bottom: 20px;
 }
 
 .sequencer-buttons button {
@@ -67,7 +70,7 @@ body {
 .sequencer-grid {
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 
 .sequencer-row {

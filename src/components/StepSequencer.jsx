@@ -193,6 +193,30 @@ const StepSequencer = () => {
 
   return (
     <div className="sequencer-container">
+      <div className="controls-container">
+        <SequencerButtons
+          playing={playing}
+          startSequencer={startSequencer}
+          pauseSequencer={pauseSequencer}
+          stopSequencer={stopSequencer}
+          clearSequence={clearSequence}
+          invertSequence={invertSequence}
+        />
+
+        <BpmControl
+          bpm={bpm}
+          minBPM={minBPM}
+          maxBPM={maxBPM}
+          handleBpmChange={handleBpmChange}
+        />
+        <NumberOfStepsControl
+          steps={numOfSteps}
+          minSteps={minSteps}
+          maxSteps={maxSteps}
+          handleStepsChange={handleStepsChange}
+        />
+        <StepValueControl stepValue={stepValue} setStepValue={setStepValue} />
+      </div>
       <StepGrid
         sequence={sequence}
         currentStep={currentStep}
@@ -201,29 +225,6 @@ const StepSequencer = () => {
         handleNoteChange={handleNoteChange}
         sampleNames={sampleNames}
       />
-
-      <SequencerButtons
-        playing={playing}
-        startSequencer={startSequencer}
-        pauseSequencer={pauseSequencer}
-        stopSequencer={stopSequencer}
-        clearSequence={clearSequence}
-        invertSequence={invertSequence}
-      />
-
-      <BpmControl
-        bpm={bpm}
-        minBPM={minBPM}
-        maxBPM={maxBPM}
-        handleBpmChange={handleBpmChange}
-      />
-      <NumberOfStepsControl
-        steps={numOfSteps}
-        minSteps={minSteps}
-        maxSteps={maxSteps}
-        handleStepsChange={handleStepsChange}
-      />
-      <StepValueControl stepValue={stepValue} setStepValue={setStepValue} />
 
       {showPopup && (
         <ConfirmationPopup
