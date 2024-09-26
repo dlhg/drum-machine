@@ -36,10 +36,14 @@ const StepSequencer = () => {
     "Open Hat",
     "Closed Hat 2",
   ];
+  const stepsPerPage = 16;
 
   // useState
 
   const [bpm, setBpm] = useState(120);
+
+  const [currentPage, setCurrentPage] = useState(0);
+
   const [playing, setPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [numOfSteps, setSteps] = useState(16);
@@ -227,6 +231,9 @@ const StepSequencer = () => {
         notes={notes}
         handleNoteChange={handleNoteChange}
         sampleNames={sampleNames}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        stepsPerPage={stepsPerPage}
       />
 
       {showPopup && (

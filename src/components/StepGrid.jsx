@@ -8,11 +8,11 @@ const StepGrid = ({
   notes,
   handleNoteChange,
   sampleNames,
+  currentPage,
+  setCurrentPage,
+  stepsPerPage,
 }) => {
   const [clickedStep, setClickedStep] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
-  const stepsPerPage = 16;
-
   const handleStepClick = (rowIndex, stepIndex) => {
     toggleStep(rowIndex, stepIndex);
     setClickedStep({ rowIndex, stepIndex });
@@ -71,6 +71,8 @@ const StepGrid = ({
         <button onClick={handlePrevPage} disabled={currentPage === 0}>
           &lt; Prev
         </button>
+
+        <span className="pagination-display">page {currentPage + 1}</span>
         <button
           onClick={handleNextPage}
           disabled={endStepIndex >= sequence[0].length}
