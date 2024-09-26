@@ -96,6 +96,9 @@ const StepSequencer = () => {
   }, []);
 
   const handleBpmChange = useCallback((e) => {
+    if (e.target.value > maxBPM || e.target.value < minBPM) {
+      return;
+    }
     setBpm(e.target.value);
   }, []);
 
@@ -194,6 +197,12 @@ const StepSequencer = () => {
   return (
     <div className="sequencer-container">
       <div className="controls-container">
+        <BpmControl
+          bpm={bpm}
+          minBPM={minBPM}
+          maxBPM={maxBPM}
+          handleBpmChange={handleBpmChange}
+        />
         <SequencerButtons
           playing={playing}
           startSequencer={startSequencer}
@@ -203,12 +212,6 @@ const StepSequencer = () => {
           invertSequence={invertSequence}
         />
 
-        <BpmControl
-          bpm={bpm}
-          minBPM={minBPM}
-          maxBPM={maxBPM}
-          handleBpmChange={handleBpmChange}
-        />
         <NumberOfStepsControl
           steps={numOfSteps}
           minSteps={minSteps}
