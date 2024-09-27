@@ -16,7 +16,7 @@ const SequencerButtons = ({
       STOP
     </button>
     <button onClick={clearSequence}>CLEAR</button>
-    <button onClick={invertSequence}>INVERT</button>
+    {/* <button onClick={invertSequence}>INVERT</button> */}
   </div>
 );
 
