@@ -31,11 +31,6 @@ body {
   align-items: center;
 }
 
-.bpm-control input[type="range"] {
-  margin-left: 10px;
-  width: 300px;
-}
-
 .bpm-label {
   font-size: 16px;
 }
