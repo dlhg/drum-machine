@@ -100,16 +100,6 @@ const BpmControl = ({ bpm, minBPM, maxBPM, handleBpmChange }) => {
       onInput={handleInput}
       onBeforeInput={handleBeforeInput}
       ref={bpmRef}
-      style={{
-        display: "inline-block",
-        padding: "10px",
-        border: "1px solid #ccc",
-        borderRadius: "4px",
-        cursor: "pointer",
-        userSelect: "none",
-        textAlign: "center",
-        width: "50px",
-      }}
     >
       {currentBpm}
     </div>
