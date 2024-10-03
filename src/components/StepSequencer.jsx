@@ -217,23 +217,15 @@ const StepSequencer = () => {
           maxBPM={maxBPM}
           handleBpmChange={handleBpmChange}
         />
-        <SequencerButtons
-          playing={playing}
-          startSequencer={startSequencer}
-          pauseSequencer={pauseSequencer}
-          stopSequencer={stopSequencer}
-          clearSequence={clearSequence}
-          invertSequence={invertSequence}
-        />
-
-        <NumberOfStepsControl
-          steps={numOfSteps}
-          minSteps={minSteps}
-          maxSteps={maxSteps}
-          handleStepsChange={handleStepsChange}
-        />
-        <StepValueControl stepValue={stepValue} setStepValue={setStepValue} />
       </div>
+      <SequencerButtons
+        playing={playing}
+        startSequencer={startSequencer}
+        pauseSequencer={pauseSequencer}
+        stopSequencer={stopSequencer}
+        clearSequence={clearSequence}
+        invertSequence={invertSequence}
+      />
       <StepGrid
         sequence={sequence}
         currentStep={currentStep}
@@ -245,6 +237,13 @@ const StepSequencer = () => {
         setCurrentPage={setCurrentPage}
         stepsPerPage={stepsPerPage}
       />
+      <NumberOfStepsControl
+        steps={numOfSteps}
+        minSteps={minSteps}
+        maxSteps={maxSteps}
+        handleStepsChange={handleStepsChange}
+      />
+      <StepValueControl stepValue={stepValue} setStepValue={setStepValue} />
 
       {showPopup && (
         <ConfirmationPopup
