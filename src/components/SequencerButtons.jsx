@@ -1,4 +1,5 @@
 import React from "react";
+import BpmControl from "./BPMControl";
 
 const SequencerButtons = ({
   playing,
@@ -7,8 +8,18 @@ const SequencerButtons = ({
   stopSequencer,
   clearSequence,
   invertSequence,
+  bpm,
+  minBPM,
+  maxBPM,
+  handleBpmChange,
 }) => (
   <div className="sequencer-buttons">
+    <BpmControl
+      bpm={bpm}
+      minBPM={minBPM}
+      maxBPM={maxBPM}
+      handleBpmChange={handleBpmChange}
+    />
     <button onClick={playing ? pauseSequencer : startSequencer}>
       {playing ? "PAUSE" : "PLAY"}
     </button>

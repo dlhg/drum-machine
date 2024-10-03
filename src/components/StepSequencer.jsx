@@ -210,14 +210,7 @@ const StepSequencer = () => {
 
   return (
     <div className="sequencer-container">
-      <div className="controls-container">
-        <BpmControl
-          bpm={bpm}
-          minBPM={minBPM}
-          maxBPM={maxBPM}
-          handleBpmChange={handleBpmChange}
-        />
-      </div>
+      <div className="controls-container"></div>
       <SequencerButtons
         playing={playing}
         startSequencer={startSequencer}
@@ -225,6 +218,10 @@ const StepSequencer = () => {
         stopSequencer={stopSequencer}
         clearSequence={clearSequence}
         invertSequence={invertSequence}
+        bpm={bpm}
+        minBPM={minBPM}
+        maxBPM={maxBPM}
+        handleBpmChange={handleBpmChange}
       />
       <StepGrid
         sequence={sequence}
