@@ -1,7 +1,7 @@
 import React from "react";
 import BpmControl from "./BPMControl";
 
-const SequencerButtons = ({
+const TopRowControls = ({
   playing,
   startSequencer,
   pauseSequencer,
@@ -31,4 +31,4 @@ const SequencerButtons = ({
   </div>
 );
 
-export default React.memo(SequencerButtons);
+export default React.memo(TopRowControls);

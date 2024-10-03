@@ -4,7 +4,7 @@ import * as Tone from "tone";
 // Import components
 import BpmControl from "./BpmControl";
 import NumberOfStepsControl from "./NumberOfStepsControl";
-import SequencerButtons from "./SequencerButtons";
+import TopRowControls from "./TopRowControls";
 import StepGrid from "./StepGrid";
 import ConfirmationPopup from "./ConfirmationPopup";
 import StepValueControl from "./StepValueControl";
@@ -211,7 +211,7 @@ const StepSequencer = () => {
   return (
     <div className="sequencer-container">
       <div className="controls-container"></div>
-      <SequencerButtons
+      <TopRowControls
         playing={playing}
         startSequencer={startSequencer}
         pauseSequencer={pauseSequencer}
