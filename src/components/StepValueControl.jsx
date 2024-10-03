@@ -2,15 +2,15 @@ import React from "react";
 
 const StepValueControl = ({ stepValue, setStepValue }) => {
   const stepValues = ["1n", "2n", "4n", "8n", "16n", "32n", "64n", "128n"];
-  const stepValuesInEnglish = {
-    "1n": "whole note",
-    "2n": "half note",
-    "4n": "quarter note",
-    "8n": "eighth note",
-    "16n": "sixteenth note",
-    "32n": "thirty-second note",
-    "64n": "sixty-fourth note",
-    "128n": "one hundred twenty-eighth note",
+  const stepValuesInNotation = {
+    "1n": "\uD834\uDD5D", // whole note
+    "2n": "\uD834\uDD5E", // half note
+    "4n": "\uD834\uDD5F", // quarter note
+    "8n": "\uD834\uDD60", // eighth note
+    "16n": "\uD834\uDD61", // sixteenth note
+    "32n": "\uD834\uDD62", // thirty-second note
+    "64n": "\uD834\uDD63", // sixty-fourth note
+    "128n": "\uD834\uDD64", // one hundred twenty-eighth note
   };
 
   return (
@@ -22,7 +22,7 @@ const StepValueControl = ({ stepValue, setStepValue }) => {
       >
         {stepValues.map((value) => (
           <option key={value} value={value}>
-            step value = {stepValuesInEnglish[value]}
+            {stepValuesInNotation[value]}
           </option>
         ))}
       </select>
