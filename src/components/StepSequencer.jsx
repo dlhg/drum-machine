@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import * as Tone from "tone";
 
 // Import components
-import BpmControl from "./BpmControl";
+import BPMControl from "./BPMControl";
 import NumberOfStepsControl from "./NumberOfStepsControl";
 import StepGrid from "./StepGrid";
 import ConfirmationPopup from "./ConfirmationPopup";
@@ -210,7 +210,7 @@ const StepSequencer = () => {
   return (
     <div className="sequencer-container">
       <div className="controls-container">
-        <BpmControl
+        <BPMControl
           bpm={bpm}
           minBPM={minBPM}
           maxBPM={maxBPM}

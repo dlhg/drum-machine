@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const BpmControl = ({ bpm, minBPM, maxBPM, handleBpmChange }) => {
+const BPMControl = ({ bpm, minBPM, maxBPM, handleBpmChange }) => {
   const [currentBpm, setCurrentBpm] = useState(bpm);
   const bpmRef = useRef(null);
 
@@ -106,4 +106,4 @@ const BpmControl = ({ bpm, minBPM, maxBPM, handleBpmChange }) => {
   );
 };
 
-export default React.memo(BpmControl);
+export default React.memo(BPMControl);
