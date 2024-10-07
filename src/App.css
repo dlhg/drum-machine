@@ -96,9 +96,11 @@ body {
 }
 
 .sequencer-grid {
+  border: var(--Juno-White) 5px solid;
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  padding: 1rem;
 }
 
 .sequencer-row {
