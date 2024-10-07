@@ -77,8 +77,7 @@ body {
 }
 
 .controls-container button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--Juno-Orange);
   border: none;
   padding: 10px 20px;
   margin: 5px;
@@ -155,6 +154,7 @@ body {
 }
 
 .confirmation-popup {
+  color: var(--font-color-secondary);
   position: fixed;
   top: 50%;
   left: 50%;
