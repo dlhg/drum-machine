@@ -4,7 +4,6 @@ import * as Tone from "tone";
 // Import components
 import BpmControl from "./BpmControl";
 import NumberOfStepsControl from "./NumberOfStepsControl";
-import TopRowControls from "./TopRowControls";
 import StepGrid from "./StepGrid";
 import ConfirmationPopup from "./ConfirmationPopup";
 import StepValueControl from "./StepValueControl";
