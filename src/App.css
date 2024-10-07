@@ -1,3 +1,4 @@
+@import "./components/Variables.css";
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -23,8 +24,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #000000;
-  color: white;
+  background-color: var(--background-color-primary);
+  color: var(--font-color-primary);
 }
 
 .controls-container {
@@ -33,12 +34,14 @@ body {
   align-items: center;
   justify-content: start;
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
 }
 
 .bpm-control {
   display: flex;
   align-items: center;
+  background-color: var(--background-color-secondary);
+  color: var(--font-color-primary);
 }
 
 .bpm-label {
@@ -60,8 +63,10 @@ body {
 }
 
 .bpm-control {
-  background-color: #007bff;
-  color: white;
+  display: flex;
+  align-items: center;
+  background-color: var(--background-color-secondary);
+  color: var(--font-color-primary);
   display: inline-block;
   padding: 10px;
   border: 1px solid #ccc;
@@ -100,6 +105,7 @@ body {
 
 .sequencer-row {
   display: flex;
+  align-items: center;
   margin-bottom: 5px;
 }
 
@@ -156,8 +162,8 @@ body {
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 10px var(--box-shadow-color);
   z-index: 1000;
 }
 
@@ -166,8 +172,8 @@ body {
 }
 
 .confirmation-popup button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--background-color-secondary);
+  color: var(--font-color-primary);
   border: none;
   padding: 10px 20px;
   margin: 5px;
@@ -177,17 +183,11 @@ body {
 }
 
 .confirmation-popup button:hover {
-  background-color: #0056b3;
+  background-color: var(--background-color-hover);
 }
 
 .confirmation-popup div {
   margin-top: 20px;
-}
-
-.sequencer-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
 }
 
 .sample-name {

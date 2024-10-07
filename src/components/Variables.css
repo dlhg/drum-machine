@@ -1,0 +1,16 @@
+:root {
+  --font-color-primary: white;
+  --background-color-primary: #000000;
+  --background-color-secondary: #c35d14;
+  --background-color-hover: #0056b3;
+  --border-color: #ccc;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+
+  --Juno-Orange: #c35d14;
+  --Juno-Yellow: #c8822c;
+  --Juno-Cream: #cb8b5b;
+  --Juno-Blue: #2251ab;
+  --Juno-Red: #932023;
+  --Juno-Black: #000000;
+  --Juno-White: #ffffff;
+}
