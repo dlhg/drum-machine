@@ -14,7 +14,7 @@ const NumberOfStepsControl = ({
       value={steps}
       onChange={handleStepsChange}
     />
-    <span className="steps-label">{steps} Steps</span>
+    {/* <span className="steps-label">steps</span> */}
   </div>
 );
 
