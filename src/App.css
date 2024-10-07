@@ -22,10 +22,11 @@ body {
 
 .controls-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: start;
   width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .bpm-control {
@@ -49,8 +50,6 @@ body {
 }
 
 .sequencer-buttons {
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .bpm-control {
@@ -66,7 +65,7 @@ body {
   width: 50px;
 }
 
-.sequencer-buttons button {
+.controls-container button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -74,16 +73,15 @@ body {
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;\
-  
+  font-size: 16px;
 }
 
-.sequencer-buttons button:disabled {
+.controls-container button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
 }
 
-.sequencer-buttons button:hover:not(:disabled) {
+.controls-container button:hover:not(:disabled) {
   background-color: #0056b3;
 }
 
@@ -114,7 +112,6 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .step:hover {
   transform: scale(1.15);
 }
@@ -123,8 +120,6 @@ body {
   background-color: #ff5722;
   color: white;
 }
-
-
 
 .step.active {
   background-color: #fd5454;
@@ -199,9 +194,6 @@ body {
 }
 
 .step-value-control {
-
-
-
 }
 
 .pagination-controls {
