@@ -10,7 +10,6 @@
     transform: scale(1);
   }
 }
-
 @font-face {
   font-family: "Microgramma";
   src: url("./assets/fonts/Microgramma.otf") format("opentype");
@@ -65,13 +64,13 @@ body {
 .bpm-control {
   display: flex;
   align-items: center;
-  background-color: var(--background-color-secondary);
+  background-color: var(--Juno-Yellow);
   color: var(--font-color-primary);
   display: inline-block;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
+  /* border-radius: 4px; */
+  /* cursor: pointer; */
   user-select: none;
   text-align: center;
   width: 50px;
@@ -83,7 +82,7 @@ body {
   border: none;
   padding: 10px 20px;
   margin: 5px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   cursor: pointer;
   font-size: 16px;
 }
