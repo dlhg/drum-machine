@@ -41,6 +41,7 @@ body {
   align-items: center;
   background-color: var(--background-color-secondary);
   color: var(--font-color-primary);
+  margin-left: 5px;
 }
 
 .bpm-label {
