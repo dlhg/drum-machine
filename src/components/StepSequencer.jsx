@@ -29,11 +29,11 @@ const StepSequencer = () => {
     "Kick",
     "Clap",
     "Closed Hat",
+    "Closed Hat 2",
     "Conga",
     "808 Bass",
     "Rimshot",
     "Open Hat",
-    "Closed Hat 2",
   ];
   const stepsPerPage = 16;
 
@@ -63,11 +63,11 @@ const StepSequencer = () => {
       new Tone.Sampler({ C3: kick }).toDestination(),
       new Tone.Sampler({ C3: clap }).toDestination(),
       new Tone.Sampler({ C3: closedhat }).toDestination(),
+      new Tone.Sampler({ C3: closedhat2 }).toDestination(),
       new Tone.Sampler({ C3: conga }).toDestination(),
       new Tone.Sampler({ C3: eightoheightbass }).toDestination(),
       new Tone.Sampler({ C3: rimshot }).toDestination(),
       new Tone.Sampler({ C3: openhat }).toDestination(),
-      new Tone.Sampler({ C3: closedhat2 }).toDestination(),
     ],
     []
   );
