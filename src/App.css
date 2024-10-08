@@ -41,7 +41,7 @@ body {
   align-items: center;
   background-color: var(--background-color-secondary);
   color: var(--font-color-primary);
-  margin-left: 5px;
+  /* margin-left: 5px; */
 }
 
 .bpm-label {
@@ -77,10 +77,10 @@ body {
   width: 50px;
 }
 
-.controls-container button {
+.controls-container * {
   background-color: var(--Juno-Orange);
   border: none;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   margin: 5px;
   /* border-radius: 5px; */
   cursor: pointer;
