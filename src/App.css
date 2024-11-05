@@ -65,7 +65,7 @@ body {
 .bpm-control {
   display: flex;
   align-items: center;
-  background-color: var(--Juno-Yellow);
+  background-color: var(--Juno-Orange);
   color: var(--font-color-primary);
   display: inline-block;
   padding: 10px;
